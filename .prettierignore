@@ -1,0 +1,22 @@
+# Build outputs
+dist
+build
+.vite
+
+# Dependencies
+node_modules
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+
+# IDE
+.vscode
+.idea
+
+# Misc
+coverage
+*.min.js
+*.min.css
