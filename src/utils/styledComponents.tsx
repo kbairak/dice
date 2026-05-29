@@ -43,12 +43,6 @@ export function Title({ children, ref }: { children?: ComponentChild, ref?: RefO
   );
 }
 
-export function Subtitle({ children }: { children: ComponentChild }) {
-  return (
-    <h2 className="text-xl font-semibold text-gray-100 text-center">{children}</h2>
-  );
-}
-
 // ==================== Interactive Components ====================
 
 export function Button({
@@ -101,7 +95,8 @@ export function Checkbox({ checked, onClick: onChange, ref: _ref }: {
       onClick={onChange}
       className={`w-5 h-5 rounded border-2 border-zinc-600 bg-zinc-800 checked:bg-primary
                   checked:border-primary checked:shadow-lg checked:shadow-primary/30 focus:ring-2
-                  focus:ring-primary/50 focus:outline-none cursor-pointer transition-all`}
+                  focus:ring-primary/50 focus:outline-none cursor-pointer transition-all
+                  accent-purple-500`}
     />
   );
 }

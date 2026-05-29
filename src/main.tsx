@@ -7,7 +7,6 @@ import {
   useLocalStorage,
   usePropertyBoolean,
   useRefProxy,
-  useStyleBoolean,
   useTextContent,
 } from 'domstatejsx';
 import { POSITIONS } from './constants/positions';
@@ -18,7 +17,6 @@ import { playBeep } from './utils/sound';
 import {
   Container,
   Title,
-  Subtitle,
   Button,
   Label,
   Checkbox,
@@ -114,7 +112,6 @@ function InitScreen({ ref: _ref, onStart }: {
           value={getCoupleTypeFromLocalStorage() as CoupleType}
           onChange={handleCoupleTypeChange}
         />
-        <Subtitle>Positions</Subtitle>
         <OptionsChecklist
           ref={refs.optionsChecklist}
           options={POSITIONS[getCoupleTypeFromLocalStorage() as CoupleType]}
@@ -294,14 +291,11 @@ function TimerControls({ value, onChange }: { value: number; onChange: (v: numbe
   }
 
   return (
-    <>
-      <Subtitle>Timer Duration</Subtitle>
-      <Flex>
-        <Button ref={refs.buttonDown} onClick={handleDown} variant="icon">-</Button>
-        <Timer ref={refs.span}>{formatTime(value)}</Timer>
-        <Button ref={refs.buttonUp} onClick={handleUp} variant="icon">+</Button>
-      </Flex>
-    </>
+    <Flex>
+      <Button ref={refs.buttonDown} onClick={handleDown} variant="icon">-</Button>
+      <Timer ref={refs.span}>{formatTime(value)}</Timer>
+      <Button ref={refs.buttonUp} onClick={handleUp} variant="icon">+</Button>
+    </Flex>
   );
 }
 TimerControls.Context = createContext();
@@ -360,68 +354,3 @@ function MainScreen({ ref: _ref, onStop }: { ref: RefObject; onStop: () => void 
 MainScreen.Context = createContext();
 
 document.getElementById('app')!.replaceWith(<App />);
-
-// document.getElementById('app')!.replaceWith(
-//   <Container>
-//     <Title>Sex Dice</Title>
-//     <Flex>
-//       <ToggleGroup>
-//         <ToggleButton active>Straight</ToggleButton>
-//         <ToggleButton>Gay</ToggleButton>
-//         <ToggleButton>Lesbian</ToggleButton>
-//       </ToggleGroup>
-//     </Flex>
-//     <Subtitle>Positions</Subtitle>
-//     <Label>
-//       <Checkbox checked />
-//       Select all
-//     </Label>
-//     <Scrollable>
-//       <Label><Checkbox checked />Missionary</Label>
-//       <Label><Checkbox checked />Doggy</Label>
-//       <Label><Checkbox />Cowgirl</Label>
-//       <Label><Checkbox />Reverse cowgirl</Label>
-//       <Label><Checkbox />Spooning</Label>
-//       <Label><Checkbox />69</Label>
-//       <Label><Checkbox />Stand and carry</Label>
-//       <Label><Checkbox />Lotus</Label>
-//       <Label><Checkbox checked />Missionary</Label>
-//       <Label><Checkbox checked />Doggy</Label>
-//       <Label><Checkbox />Cowgirl</Label>
-//       <Label><Checkbox />Reverse cowgirl</Label>
-//       <Label><Checkbox />Spooning</Label>
-//       <Label><Checkbox />69</Label>
-//       <Label><Checkbox />Stand and carry</Label>
-//       <Label><Checkbox />Lotus</Label>
-//       <Label><Checkbox checked />Missionary</Label>
-//       <Label><Checkbox checked />Doggy</Label>
-//       <Label><Checkbox />Cowgirl</Label>
-//       <Label><Checkbox />Reverse cowgirl</Label>
-//       <Label><Checkbox />Spooning</Label>
-//       <Label><Checkbox />69</Label>
-//       <Label><Checkbox />Stand and carry</Label>
-//       <Label><Checkbox />Lotus</Label>
-//     </Scrollable>
-//     <Subtitle>Timer Duration</Subtitle>
-//     <Flex>
-//       <Button variant="icon">-</Button>
-//       <Timer>2:00</Timer>
-//       <Button variant="icon">+</Button>
-//     </Flex>
-//     <Button variant="primary" fullWidth>Start</Button>
-//   </Container>
-// );
-
-// document.getElementById('app')!.replaceWith(
-//   <Container>
-//     <Title>Position Dice</Title>
-//     <Fill />
-//     <Title>Missionary</Title>
-//     <Fill />
-//     <Flex>
-//       <Timer>1:29</Timer>
-//     </Flex>
-//     <Fill />
-//     <Button variant="primary" fullWidth>Stop</Button>
-//   </Container>
-// );
