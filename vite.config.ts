@@ -3,6 +3,7 @@ import { VitePWA } from 'vite-plugin-pwa';
 import domstatejsx from 'domstatejsx/vite-plugin';
 
 export default defineConfig({
+  base: '/dice/',
   plugins: [
     domstatejsx(),
     VitePWA({
