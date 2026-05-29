@@ -17,6 +17,8 @@ export default defineConfig({
         background_color: '#ffffff',
         display: 'standalone',
         orientation: 'portrait',
+        scope: '/dice/',
+        start_url: '/dice/',
         icons: [
           {
             src: '/icon-192.png',
